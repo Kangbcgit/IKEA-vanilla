@@ -1,0 +1,75 @@
+.info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+}
+.info .wrapText {
+  position: relative;
+  width: 80%;
+  height: 95%;
+  overflow: hidden;
+}
+.info h2 {
+  font-size: 7.5rem;
+  font-family: kakaoBig;
+  font-weight: 700;
+  margin-bottom: 10rem;
+  /* transform: translateX(-55%); */
+  color: #1B1B1B;
+  /* opacity: 0; */
+}
+.info h2.active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1.5s ease-out, transform 1s ease-out;
+}
+.info .wrapText p {
+  font-size: 3.125rem;
+  font-family: kakaoBig;
+  font-weight: 700;
+  text-align: right;
+  /* transform: translateX(60%); */
+  color: #1B1B1B;
+  /* opacity: 0; */
+}
+.info .wrapText p.active {
+  transition: opacity 1.5s ease-out, transform 1s ease-out;
+  opacity: 1;
+  /* transform: translateX(0); */
+}
+
+.wrapButtons {
+  position: absolute;
+  bottom: 7.8rem;
+  left: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-areas: 
+                'first .'
+                'second third';
+}
+.wrapButtons .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 120px;
+  border-radius: 20px;
+  border: 1px solid #000;
+  font-family: kakaoBig;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.wrapButtons .button.first {
+  grid-area: first;
+}
+.wrapButtons .button.second {
+  grid-area: second;
+}
+.wrapButtons .button.third {
+  grid-area: third;
+}

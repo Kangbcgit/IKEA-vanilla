@@ -1,0 +1,42 @@
+/*font-size 5rem*/
+.mainBanner {
+  width: 100%;
+  height: 100vh;
+}
+.wrapBanner {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: -10;
+}
+.mainBanner .wrapBackgroundContent {
+  width: 100%;
+  height: 100%;
+  filter: brightness(60%);
+}
+.mainBanner .wrapBackgroundContent video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mainBanner .wrapBackgroundContent video.active {
+  display: block;
+}
+.mainBanner .wrapBackgroundContent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mainBanner .wrapText {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  font-weight: bold;
+  color: rgb(218, 218, 208);
+}

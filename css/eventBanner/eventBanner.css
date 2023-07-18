@@ -1,0 +1,107 @@
+.eventBanner {
+  position: relative;
+  height: 808px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.background {
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url(../../img/banner/event_banner1.jpg), lightgray -243px -1175.928px / 138.698% 356.652% no-repeat;
+  background-position: 0 80%;
+  scale: 1.5;
+  filter: blur(5px);
+}
+
+.eventBanner .wrapText {
+  position: absolute;
+  left: calc((100% - 61.125rem) / 2);
+  top: 15%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 37.875rem;
+  height: 23.0625rem;
+  color: #fff;
+}
+
+.eventBanner .wrapText h3 {
+  font-family: KakaoBig;
+  font-size: 3.125rem;
+  font-weight: 700;
+}
+
+.eventBanner .wrapText p {
+  font-family: KakaoBig;
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.eventBanner .wrapProgressBar {
+  position: absolute;
+  left: calc(((100% - 61.125rem) / 2) + 2.25rem);
+  transform: translateX(-50%);
+  bottom: 10%;
+
+  width: 41.5rem;
+  height: 2.5rem;
+
+  /* background: #000; */
+}
+.eventBanner .wrapProgressBar .progressBackground {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100% - 4.5rem);
+  height: 0.625rem;
+  background: #ffffff60;
+}
+.eventBanner .wrapProgressBar .progressBackground .currentProgress {
+  position: absolute;
+  width: calc(100% / 6);
+  height: 100%;
+  background: #ffffff30;
+  transition: width .5s;
+}
+
+.eventBanner .wrapProgressBar .wrapPauseButton {
+  position: absolute;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #00000060;
+  cursor: pointer;
+}
+
+.eventBanner .wrapImg {
+  position: absolute;
+  right: 3.15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 61.125rem;
+  height: 45.8125rem;
+  overflow: hidden;
+}
+
+.eventBanner .wrapImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventBanner .button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.75rem;
+  height: 3.75rem;
+  cursor: pointer;
+}
+.eventBanner .button.prevButton {
+  left: 0;
+}
+.eventBanner .button.nextButton {
+  right: 0;
+}

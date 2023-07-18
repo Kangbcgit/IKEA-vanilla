@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'kakaoBig';
+  src: url('../font/KakaoBig-Bold.woff2') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'kakaoSmall';
+  src: url('../font/KakaoSmall-Light.woff2') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  position: relative;
+}
+.inner {
+  width: 100%;
+  max-width: 1500px;
+}
+.wrap-logo{
+  width: 150px;
+}
+.wrap-logo > img {
+  width: 100%;
+  object-fit: cover;
+}
+/* 더미 */
+.dummy {
+  position: relative;
+  z-index: -11;
+  height: 1000vh;
+  background: #fff;
+  margin-top: 100vh;
+  /* display: none; */
+}
