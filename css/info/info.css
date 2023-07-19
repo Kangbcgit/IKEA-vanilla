@@ -57,9 +57,10 @@
   align-items: center;
   justify-content: center;
   width: 200px;
-  height: 120px;
+  height: 100px;
   border-radius: 20px;
-  border: 1px solid #000;
+  background: #0057AD;
+  color: #fff;
   font-family: kakaoBig;
   font-size: 2rem;
   font-weight: bold;
