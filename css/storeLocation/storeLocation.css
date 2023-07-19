@@ -26,6 +26,7 @@
 }
 .storeLocation .wrapItems .item {
   overflow: hidden;
+  border-radius: 0 0 50px 50px;
 }
 .storeLocation .wrapItems .item img {
   transition: scale .5s;

@@ -17,19 +17,28 @@ window.addEventListener('DOMContentLoaded', function () {
   // header
   let header = document.querySelector('.wrapper > header'),
     gnb = header.querySelector('.wrapGnb'),
-    subMenu = header.querySelector('.subMenu'),
+    gnbATags = header.querySelectorAll('.wrapGnb > a')
+    subMenus = header.querySelectorAll('.wrapGnb > a+.subMenu'),
+    subMenuATags = header.querySelectorAll('.wrapGnb > a + .subMenu > a'),
     gnbItem = gnb.querySelectorAll('a');
 
-  function subMenuAddActive() {
-    subMenu.classList.add('active');
+    
+  // console.log(gnbATags[0].clientHeight)
+  // subMenuATags[0].style.cssText = `height: ${gnbATags[0].clientHeight}px`
+  for(let i = 0; i < subMenuATags.length; i++) {
+    subMenuATags[i].style.cssText = `height: ${gnbATags[0].clientHeight / 2}px`;
   }
 
-  function subMenuRemoveActive() {
-    subMenu.classList.remove('active');
-  }
+  // function subMenuAddActive() {
+  //   subMenu.classList.add('active');
+  // }
 
-  gnb.addEventListener('mouseover', subMenuAddActive)
-  gnb.addEventListener('mouseleave', subMenuRemoveActive)
+  // function subMenuRemoveActive() {
+  //   subMenu.classList.remove('active');
+  // }
+
+  // gnb.addEventListener('mouseover', subMenuAddActive)
+  // gnb.addEventListener('mouseleave', subMenuRemoveActive)
   // mainBanner
   let info = document.querySelector('.info');
 
@@ -47,13 +56,18 @@ window.addEventListener('DOMContentLoaded', function () {
   let wrapIdeas = this.document.querySelector('.wrapIdeas');
   let createInnerHTML = ``;
   let homeFunishingItem = {};
+  let hoverInfoSpot = i => {
+    // homeFunishingItem[`item${i}`][]
+  };
   for (let i = 1; i <= 12; i++) {
     homeFunishingItem[`item${i}`] = {
-      src: `img/home/home${i}.jpg`
+      src: `img/home/home${i}.jpg`,
+      infoSpot: []
     }
     createInnerHTML += `
-    <div class='dum'>
+    <div class='item'>
       <img src=${homeFunishingItem[`item${i}`]['src']}>
+      ${hoverInfoSpot(i)}
     </div>`
   }
   createInnerHTML += `<div class='moreButton'>더 보기</div>`
@@ -93,10 +107,11 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     };
   let imgNum = 1,
-      srcCommonImg = () => {
-    return `img/banner/event_banner${imgNum}.jpg`;
-  },
-      pause = false;
+    srcCommonImg = () => {
+      return `img/banner/event_banner${imgNum}.jpg`;
+    },
+    pause = false;
+
   function areaChanger(action) {
 
     // 1. 배경 이미지 변경 ,이미지 박스 이미지 변경
@@ -144,9 +159,9 @@ window.addEventListener('DOMContentLoaded', function () {
     `;
   }
   /** 변수 pause로 상황을 판단해 slidePause() or slideStart()를 실행하고, 버튼의 이미지(재생/멈춤)를 바꾸는 함수 */
-  function pauseControll () {
+  function pauseControll() {
     !pause ? slidePause() : slideStart();
-    eventPauseBtnImg.setAttribute('src',`${!pause ? 'img/icon/pause.svg' : 'img/icon/play.svg'}`);
+    eventPauseBtnImg.setAttribute('src', `${!pause ? 'img/icon/pause.svg' : 'img/icon/play.svg'}`);
   }
   let slideInterval;
   /** 자동 슬라이드 중지 */

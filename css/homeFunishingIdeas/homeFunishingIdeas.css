@@ -18,7 +18,7 @@
 .wrapIdeas {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr );
   grid-auto-rows: 600px;
   gap: 20px;
   margin: 0 auto;
@@ -46,17 +46,17 @@
   font-weight: 700;
   color: #fff;
 }
-.dum {
+.homeFunishingIdeas .item {
   background: gray;
   border-radius: 15px;
   overflow: hidden;
 }
-.dum img {
+.homeFunishingIdeas .item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.dum:nth-child(3n - 1) {
+.homeFunishingIdeas .item:nth-child(3n - 1) {
   /* transform: translateY(-20%); */
   position: relative;
   top: -20%;
