@@ -22,7 +22,8 @@ body {
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
-  user-select:none
+  user-select:none;
+  min-width: 1920px;
 }
 .inner {
   width: 100%;

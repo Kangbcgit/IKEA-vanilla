@@ -17,17 +17,73 @@ window.addEventListener('DOMContentLoaded', function () {
   // header
   let header = document.querySelector('.wrapper > header'),
     gnb = header.querySelector('.wrapGnb'),
-    gnbATags = header.querySelectorAll('.wrapGnb > a')
-    subMenus = header.querySelectorAll('.wrapGnb > a+.subMenu'),
-    subMenuATags = header.querySelectorAll('.wrapGnb > a + .subMenu > a'),
+    gnbATags = header.querySelectorAll('.wrapGnb > a'),
+    gnbDiv = header.querySelectorAll('.wrapGnb > div'),
+    gnbIcons = header.querySelectorAll('.wrapSideIcons a img'),
+    // subMenus = header.querySelectorAll('.wrapGnb > a+.subMenu'),
+    // subMenuATags = header.querySelectorAll('.wrapGnb > a + .subMenu > a'),
     gnbItem = gnb.querySelectorAll('a');
+  for (let i = 0; i < gnbDiv.length; i++) {
+    gnbDiv[i].addEventListener('mouseover', () => {
+      dropDown(i)
+    })
+    gnbDiv[i].addEventListener('mouseleave', () => {
+      dropDownReverse(i);
+    })
 
+  }
+  function headerOn () {
+    let src = `img/icon/icon`;
+    header.classList.add('active');
+    for (let i = 0; i < gnbIcons.length; i++) {
+      gnbIcons[i].setAttribute('src', `${src}${i+1}rv.svg`);
+    }
+  }
+  function headerOff () {
+    let src = `img/icon/icon`;
+    header.classList.remove('active');
+    for (let i = 0; i < gnbIcons.length; i++) {
+      gnbIcons[i].setAttribute('src', `${src}${i+1}.svg`);
+    }
+  }
+  header.addEventListener('mouseover', () => {
+    headerOn();
+  })
+  header.addEventListener('mouseleave', () => {
+    headerOff();
+  })
+  function dropDown (i) {
+    gnbDiv[i].lastElementChild.classList.add('active');
+  }
+  function dropDownReverse (i) {
+    gnbDiv[i].lastElementChild.classList.remove('active');
+  }
+  this.window.addEventListener('scroll', () => {
+    if (scrollY >= 90) {
+      headerOn();
+    } else {
+      headerOff();
+    }
+  });
+  window.addEventListener('wheel', (e) => {
+    if (e.deltaY > 0) {
+      header.style.cssText = `top: ${-90}px`;
+    } else if (e.deltaY < 0) {
+      header.style.cssText = `top: ${0}px`;
+    }
+  })
     
   // console.log(gnbATags[0].clientHeight)
   // subMenuATags[0].style.cssText = `height: ${gnbATags[0].clientHeight}px`
-  for(let i = 0; i < subMenuATags.length; i++) {
-    subMenuATags[i].style.cssText = `height: ${gnbATags[0].clientHeight / 2}px`;
-  }
+  // for(let i = 0; i < subMenuATags.length; i++) {
+  //   subMenuATags[i].style.cssText = `height: ${gnbATags[0].clientHeight / 2}px`;
+  // }
+
+  /* 서브메뉴 구현 방식..
+    1. 각 a태그 밑에 + 연산선택자로써 묶어서 중복태그 많이 발생..하지만 직관적인 작업
+    2. 서브메뉴 섹션을 하나 만들고 호버하면 호버한 엘레먼트 좌표값을 불러와서 거기 붙게...하고 안의 내용물을 innerHTML으로 정의...
+      조건문을 연달아서 사용하여 ... 렌더링
+  */
 
   // function subMenuAddActive() {
   //   subMenu.classList.add('active');
