@@ -40,10 +40,12 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
   function headerOff () {
-    let src = `img/icon/icon`;
-    header.classList.remove('active');
-    for (let i = 0; i < gnbIcons.length; i++) {
-      gnbIcons[i].setAttribute('src', `${src}${i+1}.svg`);
+    if (scrollY <= 30) {
+      let src = `img/icon/icon`;
+      header.classList.remove('active');
+      for (let i = 0; i < gnbIcons.length; i++) {
+        gnbIcons[i].setAttribute('src', `${src}${i+1}.svg`);
+      }
     }
   }
   header.addEventListener('mouseover', () => {
@@ -71,6 +73,12 @@ window.addEventListener('DOMContentLoaded', function () {
     } else if (e.deltaY < 0) {
       header.style.cssText = `top: ${0}px`;
     }
+  })
+  gnbIcons[0].addEventListener('click', () => {
+    this.document.querySelector('.wrapSideIcons > form').classList.add('active');
+  })
+  this.document.querySelector('.search').addEventListener('mouseleave', () => {
+    this.document.querySelector('.wrapSideIcons > form').classList.remove('active');
   })
     
   // console.log(gnbATags[0].clientHeight)
@@ -110,24 +118,78 @@ window.addEventListener('DOMContentLoaded', function () {
   // info
   // homeFunishingIdeas
   let wrapIdeas = this.document.querySelector('.wrapIdeas');
+  let spotInfo = document.querySelector('.homeFunishingIdeas .item .spotInfo');
   let createInnerHTML = ``;
   let homeFunishingItem = {};
-  let hoverInfoSpot = i => {
+  let hoverSpotInfo = i => {
     // homeFunishingItem[`item${i}`][]
   };
+  // 데이터 생성
   for (let i = 1; i <= 12; i++) {
     homeFunishingItem[`item${i}`] = {
       src: `img/home/home${i}.jpg`,
-      infoSpot: []
+      spotInfo: {
+        top: 0,
+        left: 0,
+        title: '',
+        desc: ''
+      },
     }
-    createInnerHTML += `
-    <div class='item'>
-      <img src=${homeFunishingItem[`item${i}`]['src']}>
-      ${hoverInfoSpot(i)}
-    </div>`
   }
+  // 하드 코딩 ..쩔수 시작
+  console.log(homeFunishingItem);
+  // item1
+  homeFunishingItem[`item${1}`]['spotInfo']['top'] = 28;
+  homeFunishingItem[`item${1}`]['spotInfo']['left'] = 74;
+  // item2 
+  homeFunishingItem[`item${2}`]['spotInfo']['top'] = 63;
+  homeFunishingItem[`item${2}`]['spotInfo']['left'] = 33;
+  homeFunishingItem[`item${3}`]['spotInfo']['top'] = 35;
+  homeFunishingItem[`item${3}`]['spotInfo']['left'] = 72;
+  homeFunishingItem[`item${6}`]['spotInfo']['top'] = 43;
+  homeFunishingItem[`item${6}`]['spotInfo']['left'] = 81;
+  homeFunishingItem[`item${5}`]['spotInfo']['top'] = 33;
+  homeFunishingItem[`item${5}`]['spotInfo']['left'] = 57;
+  homeFunishingItem[`item${4}`]['spotInfo']['top'] = 47;
+  homeFunishingItem[`item${4}`]['spotInfo']['left'] = 53;
+  homeFunishingItem[`item${9}`]['spotInfo']['top'] = 35;
+  homeFunishingItem[`item${9}`]['spotInfo']['left'] = 24;
+  homeFunishingItem[`item${8}`]['spotInfo']['top'] = 23;
+  homeFunishingItem[`item${8}`]['spotInfo']['left'] = 32;
+  homeFunishingItem[`item${7}`]['spotInfo']['top'] = 67;
+  homeFunishingItem[`item${7}`]['spotInfo']['left'] = 74;
+  homeFunishingItem[`item${12}`]['spotInfo']['top'] = 86;
+  homeFunishingItem[`item${12}`]['spotInfo']['left'] = 55;
+  homeFunishingItem[`item${11}`]['spotInfo']['top'] = 16;
+  homeFunishingItem[`item${11}`]['spotInfo']['left'] = 38;
+  homeFunishingItem[`item${10}`]['spotInfo']['top'] = 47;
+  homeFunishingItem[`item${10}`]['spotInfo']['left'] = 48;
+  // 하드 코딩 ..쩔수 끝
+  
+  // 데이터 할당
+  for (let i = 1; i <= 12; i++) {
+    createInnerHTML += `
+    <a href="#none" class='item'>
+      <img src=${homeFunishingItem[`item${i}`]['src']}>
+      <div class="spotInfo" style="top: ${homeFunishingItem[`item${i}`]['spotInfo']['top']}%; left: ${homeFunishingItem[`item${i}`]['spotInfo']['left']}%;">
+        <i class="fa fa-plus"></i>
+      </div>
+    </a>`
+  }
+  
   createInnerHTML += `<div class='moreButton'>더 보기</div>`
   wrapIdeas.innerHTML = createInnerHTML;
+
+  let homeItems = wrapIdeas.querySelectorAll('.item');
+  for (let i = 0; i < homeItems.length; i++) {
+    homeItems[i].addEventListener('mouseover', (e) => {
+      e.currentTarget.classList.add('active');
+    })  
+    homeItems[i].addEventListener('mouseleave', (e) => {
+      e.currentTarget.classList.remove('active');
+    })  
+  }
+
   // eventBanner
   let eventBanner = document.querySelector('.eventBanner'),
     eventBgImg = eventBanner.querySelector('.background > img'),

@@ -65,6 +65,10 @@
   font-family: kakaoBig;
   font-size: 2rem;
   font-weight: bold;
+  transition: .15s;
+}
+.wrapButtons .button:hover {
+  background: #006dda;
 }
 .wrapButtons .button.first {
   grid-area: first;

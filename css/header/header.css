@@ -15,11 +15,12 @@ header {
   transition: .3s;
 }
 header.active {
-  border-bottom: 1px solid #1E1E21;
+  border-bottom: 1px solid #b6b6b6;
   background: #fff;
   color: #1E1E21;
 }
 .headerInner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,7 +66,8 @@ header.active {
 }
 
 .wrapGnb > div::before,
-.wrapGnb > a::before {
+.wrapGnb > a::before,
+.wrapSideIcons a::before {
   content: '';
   position: absolute;
   bottom: 30%;
@@ -77,15 +79,19 @@ header.active {
   background: #000;
   border-radius: 100px;
 }
+.wrapSideIcons a::before {
+  bottom: 0;
+}
 .wrapGnb > div:hover::before,
-.wrapGnb > a:hover::before {
+.wrapGnb > a:hover::before,
+.wrapSideIcons a:hover::before {
   width: 100%;
 }
 .wrapGnb .subMenu {
   position: absolute;
   left: 0;
   top: 100%;
-  border-top: 1px solid #1E1E21;
+  border-top: 1px solid #b6b6b6;
   display: flex;
   flex-flow: column;
   align-items: start;
@@ -127,7 +133,7 @@ header.active {
   height: 0;
   background: #000;
   border-radius: 100px;
-  transition: .5s;
+  transition: .2s;
 }
 .wrapGnb .subMenu > a:hover::before {
   height: 60%;
@@ -140,16 +146,29 @@ header.active {
 }
 .wrapSideIcons a {
   position: relative;
+  display: block;
 }
 .wrapSideIcons form {
   position: absolute;
-  right: 0;
+  right: 130px;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 0;
+  overflow: hidden;
+}
+.wrapSideIcons form.active {
+  max-width: calc(1700px / 5);
+  transition: .4s;
 }
 .wrapSideIcons form input {
   display: block;
   width: calc(1700px / 5);
   border: 1px solid #000;
-  height: 100%;
+  border-radius: 25px;
+  height: 50px;
+  padding: 20px;
+  background: #edeefc;
+  border: 1px solid #d4d9df;
 }
 /* .subMenu {
   position: absolute;

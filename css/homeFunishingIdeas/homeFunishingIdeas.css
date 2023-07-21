@@ -48,9 +48,78 @@
   color: #fff;
 }
 .homeFunishingIdeas .item {
+  position: relative;
   background: gray;
   border-radius: 15px;
   overflow: hidden;
+}
+.homeFunishingIdeas .item .spotInfo {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  width: 20px;
+  height: 20px;
+  background: rgba(224, 235, 255, 0.336);
+  color: #Fff;font-size: 0.2rem;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+}
+.homeFunishingIdeas .item.active .spotInfo {
+  opacity: 1;
+  pointer-events: auto;
+}
+.homeFunishingIdeas .item .spotInfo::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  border: 1px solid #949494;
+  animation: rader1 1.3s infinite;
+}
+.homeFunishingIdeas .item .spotInfo::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  border: 1px solid #949494;
+  animation: rader1 1.3s .4s infinite;
+}
+@keyframes rader1 {
+  from {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  to {
+    width: 160%;
+    height: 160%;
+    opacity: 0;
+  }
+}
+.homeFunishingIdeas .item .spotInfo a {
+  position: absolute;
+  left: 0;
+  bottom: 110%;
+  display: flex;
+  flex-flow: column;
+  border: 1px solid #000;
+  background: #fff;
 }
 .homeFunishingIdeas .item img {
   width: 100%;
