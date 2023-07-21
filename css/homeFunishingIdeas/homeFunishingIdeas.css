@@ -61,10 +61,11 @@
   align-items: center;
   justify-content: center;
   line-height: 0;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background: rgba(224, 235, 255, 0.336);
-  color: #Fff;font-size: 0.2rem;
+  color: #Fff;
+  font-size: .5rem;
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;

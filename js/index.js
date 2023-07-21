@@ -81,7 +81,6 @@ window.addEventListener('DOMContentLoaded', function () {
     this.document.querySelector('.wrapSideIcons > form').classList.remove('active');
   })
     
-  // console.log(gnbATags[0].clientHeight)
   // subMenuATags[0].style.cssText = `height: ${gnbATags[0].clientHeight}px`
   // for(let i = 0; i < subMenuATags.length; i++) {
   //   subMenuATags[i].style.cssText = `height: ${gnbATags[0].clientHeight / 2}px`;
@@ -137,7 +136,6 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
   // 하드 코딩 ..쩔수 시작
-  console.log(homeFunishingItem);
   // item1
   homeFunishingItem[`item${1}`]['spotInfo']['top'] = 28;
   homeFunishingItem[`item${1}`]['spotInfo']['left'] = 74;
