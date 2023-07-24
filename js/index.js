@@ -106,7 +106,9 @@ window.addEventListener('DOMContentLoaded', function () {
   let info = document.querySelector('.info');
 
   let mainBannerBackground = document.querySelector('.wrapBackgroundContent'),
-    mainBannerVid = mainBannerBackground.querySelector('video');
+      mainBanner = document.querySelector('section.mainBanner'),
+      mainBannerImg = mainBanner.querySelector('img'),
+      mainBannerVid = mainBannerBackground.querySelector('video');
   window.addEventListener('scroll', () => {
     if (info.getBoundingClientRect().top <= 0) {
       mainBannerVid.classList.add('active');
@@ -114,6 +116,17 @@ window.addEventListener('DOMContentLoaded', function () {
       mainBannerVid.classList.remove('active');
     }
   })
+  
+  /** mainBanner 이미지 자동 전환 카운트 */
+  let i = 1,
+    /** 이미지 주소 수동기입 */
+    src = 'img/main_banner_';
+  /** mainBanner 이미지 호출부 선언초마다 전환 */
+  function imgChanger() {
+    mainBannerImg.setAttribute('src', `${src}${i}.jpg`)
+    i >= 10 ? i = 1 : i++;
+  }
+  setInterval(imgChanger, 3500); /* 호출부 */
   // info
   // homeFunishingIdeas
   let wrapIdeas = this.document.querySelector('.wrapIdeas');
